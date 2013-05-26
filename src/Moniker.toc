@@ -1,0 +1,15 @@
+## Interface: 50300
+## Name: Moniker
+## Title: Moniker
+## Notes: Add a moniker to your outgoing chat messages in various channels
+## Author: Taurendur
+## Version: 0.1
+## OptionalDeps:
+## Dependencies:
+## SavedVariables:MonikerSettings
+## SavedVariablesPerCharacter:
+## DefaultState: enabled
+## X-Category: Chat
+## X-Curse-Packaged-Version: 0.1
+## X-Curse-Project-ID: moniker
+Moniker.xml
