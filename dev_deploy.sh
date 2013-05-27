@@ -13,6 +13,7 @@ if [ -d "${MONIKER_DIRECTORY}" ]; then
   cp -v src/Moniker.lua "${MONIKER_DIRECTORY}"
   cp -v src/Moniker.toc "${MONIKER_DIRECTORY}"
   cp -v src/Moniker.xml "${MONIKER_DIRECTORY}"
+  date
 else
   echo "'${MONIKER_DIRECTORY}' doesn't seem to exist?"
 fi
