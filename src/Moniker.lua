@@ -27,6 +27,10 @@ local Moniker_ChannelDefinitions = Moniker_InitializeChannelDefinitions()
 
 function Moniker_OnLoad(frame)
     frame:RegisterEvent("VARIABLES_LOADED")
+
+    SlashCmdList["MONIKER"] = Moniker_Commands
+    SLASH_MONIKER1 = "/moniker"
+    SLASH_MONIKER2 = "/mnk"
 end
 
 function Moniker_OnEvent(frame, event)
@@ -70,14 +74,11 @@ end
 
 function Moniker_DecorateSendChatMessage(msg, system, language, channel)
     if MonikerSettings.enabled then
-        local decorated_msg = Moniker_AddPrefix(msg)
-
         if Moniker_ChannelIsEnabled(system, channel) then
-            Moniker_SystemSendChatMessage(decorated_msg, system, language, channel)
+            msg = Moniker_AddPrefix(msg)
         end
-    else
-        Moniker_SystemSendChatMessage(msg, system, language, channel)
     end
+    Moniker_SystemSendChatMessage(msg, system, language, channel)
 end
 
 function Moniker_AddPrefix(msg)
@@ -121,4 +122,35 @@ function Moniker_ChannelIsEnabled(system, channel)
     end
     
     return false
+end
+
+function Moniker_Commands(msg)
+    local command, parameters = Moniker_ParseCommand(msg)
+
+    if command == "on" then
+        Moniker_Enable(true)
+    elseif command == "off" then
+        Moniker_Enable(false)
+    end
+end
+
+function Moniker_ParseCommand(msg)
+    if msg then
+        local s, e, command = string.find(msg, "(%S+)")
+        if s then
+            return command, string.sub(msg, e + 2)
+        else
+            return ""
+        end
+    end
+end
+
+function Moniker_Enable(enable)
+    if enable then
+        DEFAULT_CHAT_FRAME:AddMessage("Moniker enabled")
+    else
+        DEFAULT_CHAT_FRAME:AddMessage("Moniker disabled")
+    end
+
+    MonikerSettings.enabled = enable
 end
