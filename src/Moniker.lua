@@ -131,6 +131,8 @@ function Moniker_Commands(msg)
         Moniker_Enable(true)
     elseif command == "off" then
         Moniker_Enable(false)
+    elseif command == "main" then
+        Moniker_UpdateMain(parameters)
     end
 end
 
@@ -147,10 +149,14 @@ end
 
 function Moniker_Enable(enable)
     if enable then
-        DEFAULT_CHAT_FRAME:AddMessage("Moniker enabled")
+        DEFAULT_CHAT_FRAME:AddMessage("Moniker enabled", 0.4, 0.4, 1.0)
     else
-        DEFAULT_CHAT_FRAME:AddMessage("Moniker disabled")
+        DEFAULT_CHAT_FRAME:AddMessage("Moniker disabled", 0.4, 0.4, 1.0)
     end
 
     MonikerSettings.enabled = enable
+end
+
+function Moniker_UpdateMain(name)
+    MonikerSettings.monikers.main = name
 end
