@@ -28,7 +28,7 @@ local Moniker_ChannelDefinitions = Moniker_InitializeChannelDefinitions()
 function Moniker_OnLoad(frame)
     frame:RegisterEvent("VARIABLES_LOADED")
 
-    SlashCmdList["MONIKER"] = Moniker_Commands
+    SlashCmdList["MONIKER"] = Moniker_Controller
     SLASH_MONIKER1 = "/moniker"
     SLASH_MONIKER2 = "/mnk"
 end
@@ -50,12 +50,12 @@ function Moniker_InitializeMonikerSettings()
     MonikerSettings = {}
     MonikerSettings.version = "0.1"
     MonikerSettings.enabled = true
-    MonikerSettings.format = "[%s]"
+    MonikerSettings.format = "(%s)"
     MonikerSettings.monikers = {}
     MonikerSettings.monikers.main = ""
     MonikerSettings.channels = {}
-    MonikerSettings.channels.whisper = true
-    MonikerSettings.channels.party = true
+    MonikerSettings.channels.whisper = false
+    MonikerSettings.channels.party = false
     MonikerSettings.channels.guild = false
     MonikerSettings.channels.officer = false
     MonikerSettings.channels.raid = false
@@ -82,8 +82,13 @@ function Moniker_DecorateSendChatMessage(msg, system, language, channel)
 end
 
 function Moniker_AddPrefix(msg)
-    local prefix = string.format(MonikerSettings.format, MonikerSettings.monikers.main)
-    return prefix .. " " .. msg
+    if MonikerSettings.monikers.main == "" then
+        DEFAULT_CHAT_FRAME:AddMessage("Moniker enabled for this channel but main is blank", 0.4, 0.4, 1.0)
+        return msg
+    else
+        local prefix = string.format(MonikerSettings.format, MonikerSettings.monikers.main)
+        return prefix .. " " .. msg
+    end
 end
 
 function Moniker_ChannelIsEnabled(system, channel)
@@ -124,7 +129,7 @@ function Moniker_ChannelIsEnabled(system, channel)
     return false
 end
 
-function Moniker_Commands(msg)
+function Moniker_Controller(msg)
     local command, parameters = Moniker_ParseCommand(msg)
 
     if command == "on" then
@@ -133,6 +138,14 @@ function Moniker_Commands(msg)
         Moniker_Enable(false)
     elseif command == "main" then
         Moniker_UpdateMain(parameters)
+    elseif command == "guild" then
+        Moniker_ToggleGuildChannel()
+    elseif command == "whisper" then
+        Moniker_ToggleWhisperChannel()
+    elseif command == "reset" then
+        Moniker_ResetDefaults()
+    else
+        Moniker_CommandNotRecognized(command)
     end
 end
 
@@ -159,4 +172,33 @@ end
 
 function Moniker_UpdateMain(name)
     MonikerSettings.monikers.main = name
+end
+
+function Moniker_ToggleGuildChannel()
+    if MonikerSettings.channels.guild == true then
+        MonikerSettings.channels.guild = false
+        DEFAULT_CHAT_FRAME:AddMessage("Moniker disabled for guild chat", 0.4, 0.4, 1.0)
+    else
+        MonikerSettings.channels.guild = true
+        DEFAULT_CHAT_FRAME:AddMessage("Moniker enabled for guild chat", 0.4, 0.4, 1.0)
+    end
+end
+
+function Moniker_ToggleWhisperChannel()
+    if MonikerSettings.channels.whisper == true then
+        MonikerSettings.channels.guild = false
+        DEFAULT_CHAT_FRAME:AddMessage("Moniker disabled for whispers", 0.4, 0.4, 1.0)
+    else
+        MonikerSettings.channels.whisper = true
+        DEFAULT_CHAT_FRAME:AddMessage("Moniker enabled for whispers", 0.4, 0.4, 1.0)
+    end
+end
+
+function Moniker_ResetDefaults()
+    Moniker_InitializeMonikerSettings()
+    DEFAULT_CHAT_FRAME:AddMessage("Moniker reset to default settings", 0.4, 0.4, 1.0)
+end
+
+function Moniker_CommandNotRecognized(command)
+    DEFAULT_CHAT_FRAME:AddMessage("Moniker command '" .. command .. "' not recognized", 0.4, 0.4, 1.0)
 end
