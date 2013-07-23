@@ -24,6 +24,7 @@ end
 local Moniker_Version = "0.1"
 local Moniker_SystemSendChatMessage
 local Moniker_ChannelDefinitions = Moniker_InitializeChannelDefinitions()
+local Moniker_CharacterName = UnitName("player")
 
 function Moniker_OnLoad(frame)
     frame:RegisterEvent("VARIABLES_LOADED")
@@ -82,7 +83,9 @@ function Moniker_DecorateSendChatMessage(msg, system, language, channel)
 end
 
 function Moniker_AddPrefix(msg)
-    if MonikerSettings.monikers.main == "" then
+    if MonikerSettings.monikers.main == Moniker_CharacterName then
+        return msg
+    elseif MonikerSettings.monikers.main == "" then
         DEFAULT_CHAT_FRAME:AddMessage("Moniker enabled for this channel but main is blank", 0.4, 0.4, 1.0)
         return msg
     else
