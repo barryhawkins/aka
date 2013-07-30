@@ -43,7 +43,7 @@ function Moniker_OnEvent(frame, event)
         Moniker_SystemSendChatMessage = SendChatMessage
         SendChatMessage = Moniker_DecorateSendChatMessage
 
-        DEFAULT_CHAT_FRAME:AddMessage(string.format("Moniker %s loaded",Moniker_Version), 0.4, 0.4, 1.0)
+        DEFAULT_CHAT_FRAME:AddMessage(string.format(MONIKER_VERSION_LOADED,Moniker_Version), 0.4, 0.4, 1.0)
     end
 end
 

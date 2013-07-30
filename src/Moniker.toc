@@ -12,4 +12,5 @@
 ## X-Category: Chat
 ## X-Curse-Packaged-Version: 0.1
 ## X-Curse-Project-ID: moniker
+localization.en.lua
 Moniker.xml
