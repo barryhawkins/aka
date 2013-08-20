@@ -24,7 +24,9 @@ end
 local Moniker_Version = "0.1"
 local Moniker_SystemSendChatMessage
 local Moniker_ChannelDefinitions = Moniker_InitializeChannelDefinitions()
-local Moniker_CharacterName = UnitName("player")
+local Moniker_CharacterName
+local Moniker_CharacterFaction
+local Moniker_LocalizedCharacterFaction
 
 function Moniker_OnLoad(frame)
     frame:RegisterEvent("VARIABLES_LOADED")
@@ -43,7 +45,10 @@ function Moniker_OnEvent(frame, event)
         Moniker_SystemSendChatMessage = SendChatMessage
         SendChatMessage = Moniker_DecorateSendChatMessage
 
+        Moniker_CharacterName = Moniker_GetCurrentCharacterName()
         DEFAULT_CHAT_FRAME:AddMessage(string.format(MONIKER_VERSION_LOADED,Moniker_Version), 0.4, 0.4, 1.0)
+
+        Moniker_CharacterFaction, Moniker_LocalizedCharacterFaction = Moniker_GetCurrentFaction()
     end
 end
 
@@ -200,6 +205,14 @@ end
 function Moniker_ResetDefaults()
     Moniker_InitializeMonikerSettings()
     DEFAULT_CHAT_FRAME:AddMessage("Moniker reset to default settings", 0.4, 0.4, 1.0)
+end
+
+function Moniker_GetCurrentCharacterName()
+    return UnitName("player")
+end
+
+function Moniker_GetCurrentFaction()
+    return UnitFactionGroup("player")
 end
 
 function Moniker_CommandNotRecognized(command)
