@@ -150,7 +150,7 @@ function Moniker_Controller(msg)
     elseif command == "off" then
         Moniker_Enable(false)
     elseif command == "main" then
-        Moniker_UpdateMain(parameters)
+        Moniker_SetMain(parameters)
     elseif command == "guild" then
         Moniker_ToggleGuildChannel()
     elseif command == "whisper" then
@@ -183,8 +183,10 @@ function Moniker_Enable(enable)
     MonikerSettings.enabled = enable
 end
 
-function Moniker_UpdateMain(name)
+function Moniker_SetMain(name)
+    local oldName = MonikerSettings.monikers.main
     MonikerSettings.monikers.main = name
+    DEFAULT_CHAT_FRAME:AddMessage(string.format(MONIKER_MAIN_SET_VALUE, oldName, name), 0.4, 0.4, 1.0)
 end
 
 function Moniker_ToggleGuildChannel()
