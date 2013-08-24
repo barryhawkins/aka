@@ -27,9 +27,11 @@ local Moniker_ChannelDefinitions = Moniker_InitializeChannelDefinitions()
 local Moniker_CharacterName
 local Moniker_CharacterFaction
 local Moniker_LocalizedCharacterFaction
+local Moniker_CurrentRealm
 
 function Moniker_OnLoad(frame)
     frame:RegisterEvent("VARIABLES_LOADED")
+    frame:RegisterEvent("PLAYER_ENTERING_WORLD")
 
     SlashCmdList["MONIKER"] = Moniker_Controller
     SLASH_MONIKER1 = "/moniker"
@@ -45,10 +47,13 @@ function Moniker_OnEvent(frame, event)
         Moniker_SystemSendChatMessage = SendChatMessage
         SendChatMessage = Moniker_DecorateSendChatMessage
 
-        Moniker_CharacterName = Moniker_GetCurrentCharacterName()
-        DEFAULT_CHAT_FRAME:AddMessage(string.format(MONIKER_VERSION_LOADED,Moniker_Version), 0.4, 0.4, 1.0)
+        DEFAULT_CHAT_FRAME:AddMessage(string.format(MONIKER_VERSION_LOADED, Moniker_Version), 0.4, 0.4, 1.0)
+    end
 
-        Moniker_CharacterFaction, Moniker_LocalizedCharacterFaction = Moniker_GetCurrentFaction()
+    if (event == "PLAYER_ENTERING_WORLD") then
+        Moniker_CurrentRealm = Moniker_GetCurrentRealm()
+        Moniker_CharacterFaction = Moniker_GetCurrentFaction()
+        Moniker_CharacterName = Moniker_GetCurrentCharacterName()
     end
 end
 
@@ -213,6 +218,10 @@ end
 
 function Moniker_GetCurrentFaction()
     return UnitFactionGroup("player")
+end
+
+function Moniker_GetCurrentRealm()
+    return GetRealmName()
 end
 
 function Moniker_CommandNotRecognized(command)
