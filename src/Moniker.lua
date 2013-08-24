@@ -96,7 +96,7 @@ function Moniker_AddPrefix(msg)
     if MonikerSettings.monikers.main == Moniker_CharacterName then
         return msg
     elseif MonikerSettings.monikers.main == "" then
-        DEFAULT_CHAT_FRAME:AddMessage("Moniker enabled for this channel but main is blank", 0.4, 0.4, 1.0)
+        DEFAULT_CHAT_FRAME:AddMessage(MONIKER_ENABLED_MAIN_BLANK, 0.4, 0.4, 1.0)
         return msg
     else
         local prefix = string.format(MonikerSettings.format, MonikerSettings.monikers.main)
@@ -175,9 +175,9 @@ end
 
 function Moniker_Enable(enable)
     if enable then
-        DEFAULT_CHAT_FRAME:AddMessage("Moniker enabled", 0.4, 0.4, 1.0)
+        DEFAULT_CHAT_FRAME:AddMessage(MONIKER_ENABLED, 0.4, 0.4, 1.0)
     else
-        DEFAULT_CHAT_FRAME:AddMessage("Moniker disabled", 0.4, 0.4, 1.0)
+        DEFAULT_CHAT_FRAME:AddMessage(MONIKER_DISABLED, 0.4, 0.4, 1.0)
     end
 
     MonikerSettings.enabled = enable
@@ -190,26 +190,26 @@ end
 function Moniker_ToggleGuildChannel()
     if MonikerSettings.channels.guild == true then
         MonikerSettings.channels.guild = false
-        DEFAULT_CHAT_FRAME:AddMessage("Moniker disabled for guild chat", 0.4, 0.4, 1.0)
+        DEFAULT_CHAT_FRAME:AddMessage(MONIKER_DISABLED_FOR_GUILD, 0.4, 0.4, 1.0)
     else
         MonikerSettings.channels.guild = true
-        DEFAULT_CHAT_FRAME:AddMessage("Moniker enabled for guild chat", 0.4, 0.4, 1.0)
+        DEFAULT_CHAT_FRAME:AddMessage(MONIKER_ENABLED_FOR_GUILD, 0.4, 0.4, 1.0)
     end
 end
 
 function Moniker_ToggleWhisperChannel()
     if MonikerSettings.channels.whisper == true then
-        MonikerSettings.channels.guild = false
-        DEFAULT_CHAT_FRAME:AddMessage("Moniker disabled for whispers", 0.4, 0.4, 1.0)
+        MonikerSettings.channels.whisper = false
+        DEFAULT_CHAT_FRAME:AddMessage(MONIKER_DISABLED_FOR_WHISPER, 0.4, 0.4, 1.0)
     else
         MonikerSettings.channels.whisper = true
-        DEFAULT_CHAT_FRAME:AddMessage("Moniker enabled for whispers", 0.4, 0.4, 1.0)
+        DEFAULT_CHAT_FRAME:AddMessage(MONIKER_ENABLED_FOR_WHISPER, 0.4, 0.4, 1.0)
     end
 end
 
 function Moniker_ResetDefaults()
     Moniker_InitializeMonikerSettings()
-    DEFAULT_CHAT_FRAME:AddMessage("Moniker reset to default settings", 0.4, 0.4, 1.0)
+    DEFAULT_CHAT_FRAME:AddMessage(MONIKER_RESET_TO_DEFAULT, 0.4, 0.4, 1.0)
 end
 
 function Moniker_GetCurrentCharacterName()
@@ -225,5 +225,5 @@ function Moniker_GetCurrentRealm()
 end
 
 function Moniker_CommandNotRecognized(command)
-    DEFAULT_CHAT_FRAME:AddMessage("Moniker command '" .. command .. "' not recognized", 0.4, 0.4, 1.0)
+    DEFAULT_CHAT_FRAME:AddMessage(string.format(MONIKER_COMMAND_NOT_RECOGNIZED,command), 0.4, 0.4, 1.0)
 end

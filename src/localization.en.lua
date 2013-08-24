@@ -1,3 +1,11 @@
 
 MONIKER_VERSION_LOADED = "Moniker %s loaded"
- 
+MONIKER_ENABLED_MAIN_BLANK = "Moniker enabled for this channel but main is blank"
+MONIKER_ENABLED = "Moniker enabled"
+MONIKER_DISABLED = "Moniker disabled"
+MONIKER_DISABLED_FOR_GUILD = "Moniker disabled for guild chat"
+MONIKER_ENABLED_FOR_GUILD = "Moniker enabled for guild chat"
+MONIKER_DISABLED_FOR_WHISPER = "Moniker disabled for whispers"
+MONIKER_ENABLED_FOR_WHISPER = "Moniker enabled for whispers"
+MONIKER_RESET_TO_DEFAULT = "Moniker reset to default settings"
+MONIKER_COMMAND_NOT_RECOGNIZED = "Moniker command '%s' not recognized"
