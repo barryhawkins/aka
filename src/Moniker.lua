@@ -28,6 +28,7 @@ local Moniker_CharacterName
 local Moniker_CharacterFaction
 local Moniker_LocalizedCharacterFaction
 local Moniker_CurrentRealm
+local Moniker_RealmFactionKey
 
 function Moniker_OnLoad(frame)
     frame:RegisterEvent("VARIABLES_LOADED")
@@ -54,9 +55,10 @@ function Moniker_OnEvent(frame, event)
         Moniker_CurrentRealm = Moniker_GetCurrentRealm()
         Moniker_CharacterFaction = Moniker_GetCurrentFaction()
         Moniker_CharacterName = Moniker_GetCurrentCharacterName()
+        Moniker_RealmFactionKey = string.format("%s %s", Moniker_CurrentRealm, Moniker_CharacterFaction)
 
-        if (not MonikerSettings.realms[Moniker_CurrentRealm]) then
-            MonikerSettings.realms[Moniker_CurrentRealm] = Moniker_RealmsSettingsFactory()
+        if (not MonikerSettings.realms[Moniker_RealmFactionKey]) then
+            MonikerSettings.realms[Moniker_RealmFactionKey] = Moniker_RealmSettingsFactory()
         end
     end
 end
@@ -69,7 +71,7 @@ function Moniker_InitializeMonikerSettings()
     MonikerSettings.realms = {}
 end
 
-function Moniker_RealmsSettingsFactory()
+function Moniker_RealmSettingsFactory()
     local realmSettings = {}
     realmSettings.monikers = {}
     realmSettings.monikers.main = ""
@@ -103,49 +105,49 @@ function Moniker_DecorateSendChatMessage(msg, system, language, channel)
 end
 
 function Moniker_AddPrefix(msg)
-    if MonikerSettings.realms[Moniker_CurrentRealm].monikers.main == Moniker_CharacterName then
+    if MonikerSettings.realms[Moniker_RealmFactionKey].monikers.main == Moniker_CharacterName then
         return msg
-    elseif MonikerSettings.realms[Moniker_CurrentRealm].monikers.main == "" then
+    elseif MonikerSettings.realms[Moniker_RealmFactionKey].monikers.main == "" then
         DEFAULT_CHAT_FRAME:AddMessage(MONIKER_ENABLED_MAIN_BLANK, 0.4, 0.4, 1.0)
         return msg
     else
-        local prefix = string.format(MonikerSettings.format, MonikerSettings.realms[Moniker_CurrentRealm].monikers.main)
+        local prefix = string.format(MonikerSettings.format, MonikerSettings.realms[Moniker_RealmFactionKey].monikers.main)
         return string.format("%s %s", prefix, msg)
     end
 end
 
 function Moniker_ChannelIsEnabled(system, channel)
     if system == Moniker_ChannelDefinitions.whisper then
-        return MonikerSettings.realms[Moniker_CurrentRealm].channels.whisper
+        return MonikerSettings.realms[Moniker_RealmFactionKey].channels.whisper
     elseif system == Moniker_ChannelDefinitions.party then
-        return MonikerSettings.realms[Moniker_CurrentRealm].channels.party
+        return MonikerSettings.realms[Moniker_RealmFactionKey].channels.party
     elseif system == Moniker_ChannelDefinitions.guild then
-        return MonikerSettings.realms[Moniker_CurrentRealm].channels.guild
+        return MonikerSettings.realms[Moniker_RealmFactionKey].channels.guild
     elseif system == Moniker_ChannelDefinitions.officer then
-        return MonikerSettings.realms[Moniker_CurrentRealm].channels.officer
+        return MonikerSettings.realms[Moniker_RealmFactionKey].channels.officer
     elseif system == Moniker_ChannelDefinitions.battleground then
-        return MonikerSettings.realms[Moniker_CurrentRealm].channels.battleground
+        return MonikerSettings.realms[Moniker_RealmFactionKey].channels.battleground
     elseif system == "CHANNEL" then
         if channel == Moniker_ChannelDefinitions.channel01 then
-            return MonikerSettings.realms[Moniker_CurrentRealm].channels.channel01
+            return MonikerSettings.realms[Moniker_RealmFactionKey].channels.channel01
         elseif channel == Moniker_ChannelDefinitions.channel02 then
-            return MonikerSettings.realms[Moniker_CurrentRealm].channels.channel02
+            return MonikerSettings.realms[Moniker_RealmFactionKey].channels.channel02
         elseif channel == Moniker_ChannelDefinitions.channel03 then
-            return MonikerSettings.realms[Moniker_CurrentRealm].channels.channel03
+            return MonikerSettings.realms[Moniker_RealmFactionKey].channels.channel03
         elseif channel == Moniker_ChannelDefinitions.channel04 then
-            return MonikerSettings.realms[Moniker_CurrentRealm].channels.channel04
+            return MonikerSettings.realms[Moniker_RealmFactionKey].channels.channel04
         elseif channel == Moniker_ChannelDefinitions.channel05 then
-            return MonikerSettings.realms[Moniker_CurrentRealm].channels.channel05
+            return MonikerSettings.realms[Moniker_RealmFactionKey].channels.channel05
         elseif channel == Moniker_ChannelDefinitions.channel06 then
-            return MonikerSettings.realms[Moniker_CurrentRealm].channels.channel06
+            return MonikerSettings.realms[Moniker_RealmFactionKey].channels.channel06
         elseif channel == Moniker_ChannelDefinitions.channel07 then
-            return MonikerSettings.realms[Moniker_CurrentRealm].channels.channel07
+            return MonikerSettings.realms[Moniker_RealmFactionKey].channels.channel07
         elseif channel == Moniker_ChannelDefinitions.channel08 then
-            return MonikerSettings.realms[Moniker_CurrentRealm].channels.channel08
+            return MonikerSettings.realms[Moniker_RealmFactionKey].channels.channel08
         elseif channel == Moniker_ChannelDefinitions.channel09 then
-            return MonikerSettings.realms[Moniker_CurrentRealm].channels.channel09
+            return MonikerSettings.realms[Moniker_RealmFactionKey].channels.channel09
         elseif channel == Moniker_ChannelDefinitions.channel10 then
-            return MonikerSettings.realms[Moniker_CurrentRealm].channels.channel10
+            return MonikerSettings.realms[Moniker_RealmFactionKey].channels.channel10
         end
     end
     
@@ -194,27 +196,27 @@ function Moniker_Enable(enable)
 end
 
 function Moniker_SetMain(name)
-    local oldName = MonikerSettings.realms[Moniker_CurrentRealm].monikers.main
-    MonikerSettings.realms[Moniker_CurrentRealm].monikers.main = name
+    local oldName = MonikerSettings.realms[Moniker_RealmFactionKey].monikers.main
+    MonikerSettings.realms[Moniker_RealmFactionKey].monikers.main = name
     DEFAULT_CHAT_FRAME:AddMessage(string.format(MONIKER_MAIN_SET_VALUE, oldName, name), 0.4, 0.4, 1.0)
 end
 
 function Moniker_ToggleGuildChannel()
-    if MonikerSettings.realms[Moniker_CurrentRealm].channels.guild == true then
-        MonikerSettings.realms[Moniker_CurrentRealm].channels.guild = false
+    if MonikerSettings.realms[Moniker_RealmFactionKey].channels.guild == true then
+        MonikerSettings.realms[Moniker_RealmFactionKey].channels.guild = false
         DEFAULT_CHAT_FRAME:AddMessage(MONIKER_DISABLED_FOR_GUILD, 0.4, 0.4, 1.0)
     else
-        MonikerSettings.realms[Moniker_CurrentRealm].channels.guild = true
+        MonikerSettings.realms[Moniker_RealmFactionKey].channels.guild = true
         DEFAULT_CHAT_FRAME:AddMessage(MONIKER_ENABLED_FOR_GUILD, 0.4, 0.4, 1.0)
     end
 end
 
 function Moniker_ToggleWhisperChannel()
-    if MonikerSettings.realms[Moniker_CurrentRealm].channels.whisper == true then
-        MonikerSettings.realms[Moniker_CurrentRealm].channels.whisper = false
+    if MonikerSettings.realms[Moniker_RealmFactionKey].channels.whisper == true then
+        MonikerSettings.realms[Moniker_RealmFactionKey].channels.whisper = false
         DEFAULT_CHAT_FRAME:AddMessage(MONIKER_DISABLED_FOR_WHISPER, 0.4, 0.4, 1.0)
     else
-        MonikerSettings.realms[Moniker_CurrentRealm].channels.whisper = true
+        MonikerSettings.realms[Moniker_RealmFactionKey].channels.whisper = true
         DEFAULT_CHAT_FRAME:AddMessage(MONIKER_ENABLED_FOR_WHISPER, 0.4, 0.4, 1.0)
     end
 end
