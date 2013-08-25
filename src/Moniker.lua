@@ -161,6 +161,10 @@ function Moniker_Controller(msg)
         Moniker_Enable(true)
     elseif command == "off" then
         Moniker_Enable(false)
+    elseif command == "" then
+        Moniker_DisplayHelp()
+    elseif command == "help" then
+        Moniker_DisplayHelp()
     elseif command == "main" then
         Moniker_SetMain(parameters)
     elseif command == "guild" then
@@ -223,7 +227,20 @@ end
 
 function Moniker_ResetDefaults()
     Moniker_InitializeMonikerSettings()
+    MonikerSettings.realms[Moniker_RealmFactionKey] = Moniker_RealmSettingsFactory()
     DEFAULT_CHAT_FRAME:AddMessage(MONIKER_RESET_TO_DEFAULT, 0.4, 0.4, 1.0)
+end
+
+function Moniker_DisplayHelp()
+    DEFAULT_CHAT_FRAME:AddMessage(MONIKER_HELP_PREAMBLE, 0.4, 0.4, 1.0)
+    DEFAULT_CHAT_FRAME:AddMessage(MONIKER_HELP_NOARG, 0.4, 0.4, 1.0)
+    DEFAULT_CHAT_FRAME:AddMessage(MONIKER_HELP_HELP, 0.4, 0.4, 1.0)
+    DEFAULT_CHAT_FRAME:AddMessage(MONIKER_HELP_GUILD, 0.4, 0.4, 1.0)
+    DEFAULT_CHAT_FRAME:AddMessage(MONIKER_HELP_WHISPER, 0.4, 0.4, 1.0)
+    DEFAULT_CHAT_FRAME:AddMessage(MONIKER_HELP_MAIN, 0.4, 0.4, 1.0)
+    DEFAULT_CHAT_FRAME:AddMessage(MONIKER_HELP_ON, 0.4, 0.4, 1.0)
+    DEFAULT_CHAT_FRAME:AddMessage(MONIKER_HELP_OFF, 0.4, 0.4, 1.0)
+    DEFAULT_CHAT_FRAME:AddMessage(MONIKER_HELP_RESET, 0.4, 0.4, 1.0)
 end
 
 function Moniker_GetCurrentCharacterName()
