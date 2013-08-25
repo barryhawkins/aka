@@ -6,11 +6,12 @@
 ## Version: 0.1
 ## OptionalDeps:
 ## Dependencies:
-## SavedVariables:MonikerSettings
+## SavedVariables: MonikerSettings
 ## SavedVariablesPerCharacter:
 ## DefaultState: enabled
 ## X-Category: Chat
 ## X-Curse-Packaged-Version: 0.1
 ## X-Curse-Project-ID: moniker
 localization.en.lua
+Moniker.lua
 Moniker.xml
