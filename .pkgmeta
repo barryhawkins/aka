@@ -1,0 +1,16 @@
+
+package-as: Moniker
+
+move-folders:
+    src/Moniker.lua: Moniker.lua
+    src/Moniker.toc: Moniker.toc
+    src/Moniker.xml: Moniker.xml
+    src/localization.en.lua: localization.en.lua
+
+ignore:
+    - dev_deploy.sh
+
+manual-changelog: CHANGELOG.txt
+
+license-output: LICENSE.txt
+
