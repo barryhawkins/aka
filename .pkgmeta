@@ -1,10 +1,10 @@
 
-package-as: Moniker
+package-as: AKA
 
 move-folders:
-    src/Moniker.lua: Moniker.lua
-    src/Moniker.toc: Moniker.toc
-    src/Moniker.xml: Moniker.xml
+    src/AKA.lua: AKA.lua
+    src/AKA.toc: AKA.toc
+    src/AKA.xml: AKA.xml
     src/localization.en.lua: localization.en.lua
 
 ignore:
