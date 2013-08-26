@@ -5,4 +5,4 @@ Moniker 0.1
   * Basic moniker support for adding name of main
   * Basic moniker support for enabling guild and whisper channels
 
--- Barry Hawkins (Taurendur @ US-Earthen Ring)  Sun, 25 Aug 2013 19:51:16 -0700
+-- Barry Hawkins (Taurendur @ US-Earthen Ring)  Sun, 25 Aug 2013 22:12:10 -0700
