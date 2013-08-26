@@ -1,0 +1,8 @@
+CHANGELOG for Moniker
+
+Moniker 0.1 
+  * Initial beta release
+  * Basic moniker support for adding name of main
+  * Basic moniker support for enabling guild and whisper channels
+
+-- Barry Hawkins (Taurendur @ US-Earthen Ring)

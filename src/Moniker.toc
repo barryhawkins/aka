@@ -1,7 +1,7 @@
 ## Interface: 50300
 ## Name: Moniker
 ## Title: Moniker
-## Notes: Add a moniker to your outgoing chat messages in various channels
+## Notes: Allow people to recognize you no matter what character you're playing
 ## Author: Taurendur
 ## Version: 0.1
 ## OptionalDeps:
