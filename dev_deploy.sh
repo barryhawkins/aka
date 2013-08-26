@@ -37,7 +37,7 @@ else
 fi
 
 echo "Creating AddOn archive of snapshot"
-zip ./${MONIKER_DEV_ARCHIVE_NAME} ${MONIKER_STAGING_DIRECTORY}
+zip -r ${MONIKER_DEV_ARCHIVE_NAME} ${MONIKER_STAGING_DIRECTORY}
 echo "\n"
 
 if [ -d "${MONIKER_STAGING_DIRECTORY}" ]; then
