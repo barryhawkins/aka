@@ -1,5 +1,5 @@
 README for Moniker
-Author: Barry Hawkins (Taurendur @ US-Whisperwind)
+Author: Barry Hawkins (Taurendur @ US-Earthen Ring)
 
 Purpose
 ---------------
