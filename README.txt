@@ -8,7 +8,7 @@ Moniker exists to allow individual persons playing multiple characters within th
 
 Overview
 ---------------
-Moniker is an interface AddOn for World of Warcraft (WoW), the MMORPG produced by Blizzard Entertainment. It is inspired by the Identity AddOn that has filled a similar role over the years. Identity and its successor Identity-2 have been loving shepherded by Ferusnox and UltraNurd, and we thank them for their years of service to the WoW community.
+Moniker is an interface AddOn for World of Warcraft (WoW), the MMORPG produced by Blizzard Entertainment. It is inspired by the Identity AddOn that has filled a similar role over the years. Identity and its successor Identity-2 have been lovingly shepherded by Ferusnox and UltraNurd, and we thank them for their years of service to the WoW community.
 
 
 Quick Start
@@ -20,6 +20,8 @@ I freely admit that I usually want an AddOn to be up and running as soon as poss
 3.) Type "/mnk main <name>" (where name is the actual name of your main without brackets) into the chat bar and press the Enter key.
 
 After these three steps, you should see whatever value you entered for main appear in parentheses after your current character name in guild chat messages for any character in that faction on that realm. If you are logged in as a character with the name matching the value you entered for main, Moniker will automatically leave out the parenthetical display of the same name.
+
+NOTE: Technically you could log in to your main and perform steps two and three. However, if your set main to be the actual name of your main (as many do), then testing the appearance of the parenthetical moniker will require logging out and then logging over to an alt.
 
 
 Usage
