@@ -6,4 +6,4 @@ AKA 0.1
   * Basic support for enabling guild and whisper channels
   * Rename of project to AKA
 
--- Barry Hawkins (Taurendur @ US-Earthen Ring)  Sun, 25 Aug 2013 22:12:10 -0700
+-- Barry Hawkins (Taurendur @ US-Earthen Ring)  Mon, 26 Aug 2013 13:42:11 -0700
