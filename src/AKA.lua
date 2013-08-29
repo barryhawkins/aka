@@ -21,7 +21,7 @@ function AKA_InitializeChannelDefinitions()
     return channels
 end
 
-local AKA_Version = "0.1"
+local AKA_Version = "0.2"
 local AKA_SystemSendChatMessage
 local AKA_ChannelDefinitions = AKA_InitializeChannelDefinitions()
 local AKA_CharacterName
@@ -64,7 +64,7 @@ end
 
 function AKA_InitializeAKASettings()
     AKASettings = {}
-    AKASettings.version = "0.2"
+    AKASettings.version = AKA_Version
     AKASettings.enabled = true
     AKASettings.format = "(%s)"
     AKASettings.realms = {}
