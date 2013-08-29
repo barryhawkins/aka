@@ -64,7 +64,7 @@ end
 
 function AKA_InitializeAKASettings()
     AKASettings = {}
-    AKASettings.version = "0.1"
+    AKASettings.version = "0.2"
     AKASettings.enabled = true
     AKASettings.format = "(%s)"
     AKASettings.realms = {}
