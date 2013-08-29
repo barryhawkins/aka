@@ -8,16 +8,16 @@ function AKA_InitializeChannelDefinitions()
     channels.officer = "OFFICER"
     channels.raid = "RAID"
     channels.battleground = "BATTLEGROUND"
-    channels.channel01 = "01"
-    channels.channel02 = "02"
-    channels.channel03 = "03"
-    channels.channel04 = "04"
-    channels.channel05 = "05"
-    channels.channel06 = "06"
-    channels.channel07 = "07"
-    channels.channel08 = "08"
-    channels.channel09 = "09"
-    channels.channel10 = "10"
+    channels.channel01 = 1
+    channels.channel02 = 2
+    channels.channel03 = 3
+    channels.channel04 = 4
+    channels.channel05 = 5
+    channels.channel06 = 6
+    channels.channel07 = 7
+    channels.channel08 = 8
+    channels.channel09 = 9
+    channels.channel10 = 10
     return channels
 end
 
@@ -170,6 +170,26 @@ function AKA_Controller(msg)
         AKA_ToggleGuildChannel()
     elseif command == "whisper" then
         AKA_ToggleWhisperChannel()
+    elseif command == "1" then
+        AKA_ToggleChannelOne()
+    elseif command == "2" then
+        AKA_ToggleChannelTwo()
+    elseif command == "3" then
+        AKA_ToggleChannelThree()
+    elseif command == "4" then
+        AKA_ToggleChannelFour()
+    elseif command == "5" then
+        AKA_ToggleChannelFive()
+    elseif command == "6" then
+        AKA_ToggleChannelSix()
+    elseif command == "7" then
+        AKA_ToggleChannelSeven()
+    elseif command == "8" then
+        AKA_ToggleChannelEight()
+    elseif command == "9" then
+        AKA_ToggleChannelNine()
+    elseif command == "10" then
+        AKA_ToggleChannelTen()
     elseif command == "reset" then
         AKA_ResetDefaults()
     else
@@ -221,6 +241,106 @@ function AKA_ToggleWhisperChannel()
     else
         AKASettings.realms[AKA_RealmFactionKey].channels.whisper = true
         DEFAULT_CHAT_FRAME:AddMessage(AKA_ENABLED_FOR_WHISPER, 0.4, 0.4, 1.0)
+    end
+end
+
+function AKA_ToggleChannelOne()
+    if AKASettings.realms[AKA_RealmFactionKey].channels.channel01 == true then
+        AKASettings.realms[AKA_RealmFactionKey].channels.channel01 = false
+        DEFAULT_CHAT_FRAME:AddMessage(AKA_DISABLED_FOR_CHANNEL01, 0.4, 0.4, 1.0)
+    else
+        AKASettings.realms[AKA_RealmFactionKey].channels.channel01 = true
+        DEFAULT_CHAT_FRAME:AddMessage(AKA_ENABLED_FOR_CHANNEL01, 0.4, 0.4, 1.0)
+    end
+end
+
+function AKA_ToggleChannelTwo()
+    if AKASettings.realms[AKA_RealmFactionKey].channels.channel02 == true then
+        AKASettings.realms[AKA_RealmFactionKey].channels.channel02 = false
+        DEFAULT_CHAT_FRAME:AddMessage(AKA_DISABLED_FOR_CHANNEL02, 0.4, 0.4, 1.0)
+    else
+        AKASettings.realms[AKA_RealmFactionKey].channels.channel02 = true
+        DEFAULT_CHAT_FRAME:AddMessage(AKA_ENABLED_FOR_CHANNEL02, 0.4, 0.4, 1.0)
+    end
+end
+
+function AKA_ToggleChannelThree()
+    if AKASettings.realms[AKA_RealmFactionKey].channels.channel03 == true then
+        AKASettings.realms[AKA_RealmFactionKey].channels.channel03 = false
+        DEFAULT_CHAT_FRAME:AddMessage(AKA_DISABLED_FOR_CHANNEL03, 0.4, 0.4, 1.0)
+    else
+        AKASettings.realms[AKA_RealmFactionKey].channels.channel03 = true
+        DEFAULT_CHAT_FRAME:AddMessage(AKA_ENABLED_FOR_CHANNEL03, 0.4, 0.4, 1.0)
+    end
+end
+
+function AKA_ToggleChannelFour()
+    if AKASettings.realms[AKA_RealmFactionKey].channels.channel04 == true then
+        AKASettings.realms[AKA_RealmFactionKey].channels.channel04 = false
+        DEFAULT_CHAT_FRAME:AddMessage(AKA_DISABLED_FOR_CHANNEL04, 0.4, 0.4, 1.0)
+    else
+        AKASettings.realms[AKA_RealmFactionKey].channels.channel04 = true
+        DEFAULT_CHAT_FRAME:AddMessage(AKA_ENABLED_FOR_CHANNEL04, 0.4, 0.4, 1.0)
+    end
+end
+
+function AKA_ToggleChannelFive()
+    if AKASettings.realms[AKA_RealmFactionKey].channels.channel05 == true then
+        AKASettings.realms[AKA_RealmFactionKey].channels.channel05 = false
+        DEFAULT_CHAT_FRAME:AddMessage(AKA_DISABLED_FOR_CHANNEL05, 0.4, 0.4, 1.0)
+    else
+        AKASettings.realms[AKA_RealmFactionKey].channels.channel05 = true
+        DEFAULT_CHAT_FRAME:AddMessage(AKA_ENABLED_FOR_CHANNEL05, 0.4, 0.4, 1.0)
+    end
+end
+
+function AKA_ToggleChannelSix()
+    if AKASettings.realms[AKA_RealmFactionKey].channels.channel06 == true then
+        AKASettings.realms[AKA_RealmFactionKey].channels.channel06 = false
+        DEFAULT_CHAT_FRAME:AddMessage(AKA_DISABLED_FOR_CHANNEL06, 0.4, 0.4, 1.0)
+    else
+        AKASettings.realms[AKA_RealmFactionKey].channels.channel06 = true
+        DEFAULT_CHAT_FRAME:AddMessage(AKA_ENABLED_FOR_CHANNEL06, 0.4, 0.4, 1.0)
+    end
+end
+
+function AKA_ToggleChannelSeven()
+    if AKASettings.realms[AKA_RealmFactionKey].channels.channel07 == true then
+        AKASettings.realms[AKA_RealmFactionKey].channels.channel07 = false
+        DEFAULT_CHAT_FRAME:AddMessage(AKA_DISABLED_FOR_CHANNEL07, 0.4, 0.4, 1.0)
+    else
+        AKASettings.realms[AKA_RealmFactionKey].channels.channel07 = true
+        DEFAULT_CHAT_FRAME:AddMessage(AKA_ENABLED_FOR_CHANNEL07, 0.4, 0.4, 1.0)
+    end
+end
+
+function AKA_ToggleChannelEight()
+    if AKASettings.realms[AKA_RealmFactionKey].channels.channel08 == true then
+        AKASettings.realms[AKA_RealmFactionKey].channels.channel08 = false
+        DEFAULT_CHAT_FRAME:AddMessage(AKA_DISABLED_FOR_CHANNEL08, 0.4, 0.4, 1.0)
+    else
+        AKASettings.realms[AKA_RealmFactionKey].channels.channel08 = true
+        DEFAULT_CHAT_FRAME:AddMessage(AKA_ENABLED_FOR_CHANNEL08, 0.4, 0.4, 1.0)
+    end
+end
+
+function AKA_ToggleChannelNine()
+    if AKASettings.realms[AKA_RealmFactionKey].channels.channel09 == true then
+        AKASettings.realms[AKA_RealmFactionKey].channels.channel09 = false
+        DEFAULT_CHAT_FRAME:AddMessage(AKA_DISABLED_FOR_CHANNEL09, 0.4, 0.4, 1.0)
+    else
+        AKASettings.realms[AKA_RealmFactionKey].channels.channel09 = true
+        DEFAULT_CHAT_FRAME:AddMessage(AKA_ENABLED_FOR_CHANNEL09, 0.4, 0.4, 1.0)
+    end
+end
+
+function AKA_ToggleChannelTen()
+    if AKASettings.realms[AKA_RealmFactionKey].channels.channel10 == true then
+        AKASettings.realms[AKA_RealmFactionKey].channels.channel10 = false
+        DEFAULT_CHAT_FRAME:AddMessage(AKA_DISABLED_FOR_CHANNEL10, 0.4, 0.4, 1.0)
+    else
+        AKASettings.realms[AKA_RealmFactionKey].channels.channel10 = true
+        DEFAULT_CHAT_FRAME:AddMessage(AKA_ENABLED_FOR_CHANNEL10, 0.4, 0.4, 1.0)
     end
 end
 

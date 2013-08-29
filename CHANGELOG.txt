@@ -1,5 +1,11 @@
 CHANGELOG for AKA
 
+AKA 0.2 
+  * Addition of support for channels 1-10
+  * Removal of newline character from help message; those are not allowed
+
+-- Barry Hawkins (Taurendur @ US-Earthen Ring)  Thu, 29 Aug 2013 13:07:55 -0700
+
 AKA 0.1 
   * Initial beta release
   * Basic support for adding name of main
