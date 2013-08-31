@@ -32,6 +32,7 @@ The following commands are used in the input field of the chat window in the WoW
 /aka help - Displays basic help information
 /aka guild - Toggle display of aka on and off for guild chat for the current faction on the current realm
 /aka whisper - Toggle display of aka on/off for whispers for the current faction on the current realm
+/aka <number> - Toggle display of alias on/off for channels 1-10 for the current faction on the current realm
 /aka main <name> - Sets the name of your main for the current faction on the current realm
 /aka on - Enable the AKA AddOn for the current realm
 /aka off - Disable the AKA AddOn for the current realm
