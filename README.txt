@@ -1,5 +1,5 @@
 README for AKA
-Author: Barry Hawkins (Taurendur @ US-Earthen Ring)
+Author: Barry Hawkins (Taurendur @ US-Whisperwind)
 
 Purpose
 ---------------
