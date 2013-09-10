@@ -1,5 +1,10 @@
 CHANGELOG for AKA
 
+AKA 0.3 
+  * Version bump for WoW 5.4 release
+
+-- Barry Hawkins (Taurendur @ US-Earthen Ring)  Tue, 10 Sep 2013 06:53:48 -0700
+
 AKA 0.2 
   * Addition of support for channels 1-10
   * Removal of newline character from help message; those are not allowed
