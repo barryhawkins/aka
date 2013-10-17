@@ -3,14 +3,14 @@
 ## Title: AKA
 ## Notes: Allow people to recognize you no matter what character you're playing
 ## Author: Taurendur
-## Version: 0.1
+## Version: 0.4
 ## OptionalDeps:
 ## Dependencies:
 ## SavedVariables: AKASettings
 ## SavedVariablesPerCharacter:
 ## DefaultState: enabled
 ## X-Category: Chat
-## X-Curse-Packaged-Version: 0.1
+## X-Curse-Packaged-Version: 0.4
 ## X-Curse-Project-ID: aka
 localization.en.lua
 AKA.lua

@@ -21,7 +21,7 @@ function AKA_InitializeChannelDefinitions()
     return channels
 end
 
-local AKA_Version = "0.2"
+local AKA_Version = "0.4"
 local AKA_SystemSendChatMessage
 local AKA_ChannelDefinitions = AKA_InitializeChannelDefinitions()
 local AKA_CharacterName
@@ -47,7 +47,7 @@ function AKA_OnEvent(frame, event)
         AKA_SystemSendChatMessage = SendChatMessage
         SendChatMessage = AKA_DecorateSendChatMessage
 
-        DEFAULT_CHAT_FRAME:AddMessage(string.format(AKA_VERSION_LOADED, AKA_Version), 0.4, 0.4, 1.0)
+        DEFAULT_CHAT_FRAME:AddMessage(string.format(AKA_VERSION_LOADED, AKA_Version, AKA_TrueFalseAsOnOff(AKASettings.enabled)), 0.4, 0.4, 1.0)
     end
 
     if (event == "PLAYER_ENTERING_WORLD") then
@@ -164,6 +164,8 @@ function AKA_Controller(msg)
         AKA_DisplayHelp()
     elseif command == "help" then
         AKA_DisplayHelp()
+    elseif command == "conf" then
+        AKA_DisplayConfiguration()
     elseif command == "main" then
         AKA_SetMain(parameters)
     elseif command == "guild" then
@@ -227,12 +229,7 @@ function AKA_ToggleWhisperChannel()
 end
 
 function AKA_ToggleNumericChannel(channel)
-    local channel_name
-    if #channel == 1 then
-        channel_name = string.format("channel0%s", channel)
-    else
-        channel_name = string.format("channel%s", channel)
-    end
+    local channel_name = AKA_FormatNumericChannelName(channel)
 
     if AKASettings.realms[AKA_RealmFactionKey].channels[channel_name] == true then
         AKASettings.realms[AKA_RealmFactionKey].channels[channel_name] = false
@@ -257,9 +254,30 @@ function AKA_DisplayHelp()
     DEFAULT_CHAT_FRAME:AddMessage(AKA_HELP_WHISPER, 0.4, 0.4, 1.0)
     DEFAULT_CHAT_FRAME:AddMessage(AKA_HELP_CHANNEL, 0.4, 0.4, 1.0)
     DEFAULT_CHAT_FRAME:AddMessage(AKA_HELP_MAIN, 0.4, 0.4, 1.0)
+    DEFAULT_CHAT_FRAME:AddMessage(AKA_HELP_CONF, 0.4, 0.4, 1.0)
     DEFAULT_CHAT_FRAME:AddMessage(AKA_HELP_ON, 0.4, 0.4, 1.0)
     DEFAULT_CHAT_FRAME:AddMessage(AKA_HELP_OFF, 0.4, 0.4, 1.0)
     DEFAULT_CHAT_FRAME:AddMessage(AKA_HELP_RESET, 0.4, 0.4, 1.0)
+end
+
+function AKA_DisplayConfiguration()
+    local config = {}
+    current_realm = AKASettings.realms[AKA_RealmFactionKey]
+
+    config[#config + 1] = string.format(AKA_CONF_REALM_PREAMBLE, AKA_CurrentRealm, AKA_CharacterFaction)
+    config[#config + 1] = string.format(AKA_CONF_LABEL_MAIN, current_realm.aliases.main)
+    config[#config + 1] = string.format(AKA_CONF_LABEL_GUILD, AKA_TrueFalseAsOnOff(current_realm.channels.guild))
+    config[#config + 1] = string.format(AKA_CONF_LABEL_PARTY, AKA_TrueFalseAsOnOff(current_realm.channels.party))
+    config[#config + 1] = string.format(AKA_CONF_LABEL_WHISPER, AKA_TrueFalseAsOnOff(current_realm.channels.whisper))
+    for i = 1, 10 do
+        local channel_number = tostring(i)
+        local channel_name = AKA_FormatNumericChannelName(tostring(i))
+        config[#config + 1] = string.format(AKA_CONF_LABEL_CHANNEL, channel_number, AKA_TrueFalseAsOnOff(current_realm.channels[channel_name]))
+    end
+    config[#config + 1] = AKA_CONF_GLOBAL_PREAMBLE
+    config[#config + 1] = string.format(AKA_CONF_LABEL_ENABLED, AKA_TrueFalseAsOnOff(AKASettings.enabled))
+
+    DEFAULT_CHAT_FRAME:AddMessage(table.concat(config), 0.4, 0.4, 1.0)
 end
 
 function AKA_GetCurrentCharacterName()
@@ -276,4 +294,20 @@ end
 
 function AKA_CommandNotRecognized(command)
     DEFAULT_CHAT_FRAME:AddMessage(string.format(AKA_COMMAND_NOT_RECOGNIZED,command), 0.4, 0.4, 1.0)
+end
+
+function AKA_FormatNumericChannelName(channel)
+    if #channel == 1 then
+        return string.format("channel0%s", channel)
+    else
+        return string.format("channel%s", channel)
+    end
+end
+
+function AKA_TrueFalseAsOnOff(value)
+    if value == true then
+        return "on"
+    else
+        return "off"
+    end
 end

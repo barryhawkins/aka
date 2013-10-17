@@ -34,6 +34,7 @@ The following commands are used in the input field of the chat window in the WoW
 /aka whisper - Toggle display of main on/off for whispers for the current faction on the current realm
 /aka <number> - Toggle display of main on/off for channels 1-10 for the current faction on the current realm
 /aka main <name> - Sets the name of your main for the current faction on the current realm
+/aka conf - Displays the current configuration of AKA for the current faction on the current realm
 /aka on - Enable the AKA AddOn for the current realm
 /aka off - Disable the AKA AddOn for the current realm
 /aka reset - Reset the current faction on the current realm to the default values

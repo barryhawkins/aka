@@ -1,5 +1,5 @@
 
-AKA_VERSION_LOADED = "AKA %s loaded"
+AKA_VERSION_LOADED = "AKA %s loaded; currently it is turned %s."
 AKA_ENABLED_MAIN_BLANK = "AKA enabled for this channel but main is blank"
 AKA_ENABLED = "AKA enabled"
 AKA_DISABLED = "AKA disabled"
@@ -20,6 +20,16 @@ AKA_HELP_GUILD = "/aka guild - Toggle display of main on/off for guild chat for 
 AKA_HELP_WHISPER = "/aka whisper - Toggle display of main on/off for whispers for the current faction on the current realm"
 AKA_HELP_CHANNEL = "/aka <number> - Toggle display of main on/off for channels 1-10 for the current faction on the current realm"
 AKA_HELP_MAIN = "/aka main <name> - Sets the name of your main for the current faction on the current realm"
+AKA_HELP_CONF = "/aka conf - Displays the configuration of AKA for the current faction on the current realm"
 AKA_HELP_ON = "/aka on - Enable the AKA AddOn for the current realm"
 AKA_HELP_OFF = "/aka off - Disable the AKA AddOn for the current realm"
 AKA_HELP_RESET = "/aka reset - Reset the current faction on the current realm to the default values"
+
+AKA_CONF_REALM_PREAMBLE = "AKA Configuration for %s, %s: "
+AKA_CONF_LABEL_MAIN = "Main: '%s', "
+AKA_CONF_LABEL_GUILD = "Guild:%s, "
+AKA_CONF_LABEL_PARTY = "Party:%s, "
+AKA_CONF_LABEL_WHISPER = "Whisper:%s, "
+AKA_CONF_LABEL_CHANNEL = "%s:%s, "
+AKA_CONF_GLOBAL_PREAMBLE = "AKA Global Configuration: "
+AKA_CONF_LABEL_ENABLED = "Enabled:%s"
