@@ -4,7 +4,7 @@ AKA 0.4
   * Addition of configuration display command
   * Enhanced load message; now displays whether AKA is enabled
 
--- Barry Hawkins (Taurendur @ US-Whisperwind)  
+-- Barry Hawkins (Taurendur @ US-Whisperwind)  Wed, 16 Oct 2013 23:02:05 -0700
 
 AKA 0.3 
   * Version bump for WoW 5.4 release
