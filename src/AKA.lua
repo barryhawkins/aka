@@ -21,7 +21,7 @@ function AKA_InitializeChannelDefinitions()
     return channels
 end
 
-local AKA_Version = "0.4"
+local AKA_Version = "0.5"
 local AKA_SystemSendChatMessage
 local AKA_ChannelDefinitions = AKA_InitializeChannelDefinitions()
 local AKA_CharacterName
@@ -105,7 +105,7 @@ end
 
 function AKA_AddPrefix(msg)
     if AKASettings.realms[AKA_RealmFactionKey].aliases.main == AKA_CharacterName then
-        return msg
+        return string.format("(%s) %s", AKA_DICT_MAIN, msg)
     elseif AKASettings.realms[AKA_RealmFactionKey].aliases.main == "" then
         DEFAULT_CHAT_FRAME:AddMessage(AKA_ENABLED_MAIN_BLANK, 0.4, 0.4, 1.0)
         return msg

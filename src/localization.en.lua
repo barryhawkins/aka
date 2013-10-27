@@ -33,3 +33,5 @@ AKA_CONF_LABEL_WHISPER = "Whisper:%s, "
 AKA_CONF_LABEL_CHANNEL = "%s:%s, "
 AKA_CONF_GLOBAL_PREAMBLE = "AKA Global Configuration: "
 AKA_CONF_LABEL_ENABLED = "Enabled:%s"
+
+AKA_DICT_MAIN = "Main"
