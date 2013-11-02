@@ -1,5 +1,10 @@
 CHANGELOG for AKA
 
+AKA 0.5 
+  * Indicate when player is currently playing their main character
+
+-- Barry Hawkins (Taurendur @ US-Whisperwind)  Sat, 02 Nov 2013 09:58:55 -0700
+
 AKA 0.4 
   * Addition of configuration display command
   * Enhanced load message; now displays whether AKA is enabled
