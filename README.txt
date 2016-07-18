@@ -1,9 +1,9 @@
 README for AKA
-Author: Barry Hawkins (Taurendur @ US-Whisperwind)
+Author: Barry Hawkins
 
 Purpose
 ---------------
-AKA exists to allow individual persons playing multiple characters within the World of Warcraft to be more easily recognized by those they communicate with, regardless of which character they are currently playing.
+AKA exists to allow players with multiple characters in World of Warcraft to be more easily recognized by those they communicate with, regardless of which character they are currently playing.
 
 
 Overview
