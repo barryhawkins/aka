@@ -1,5 +1,10 @@
 CHANGELOG for AKA
 
+AKA 0.7 
+  * Updated for 7.0.3 compatibility
+
+-- Barry Hawkins Tue, 19 Jul 2016 08:02:07 -0700
+
 AKA 0.6 
   * Updated for 6.2.4 compatibility
 

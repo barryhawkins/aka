@@ -6,14 +6,9 @@ Purpose
 AKA exists to allow players with multiple characters in World of Warcraft to be more easily recognized by those they communicate with, regardless of which character they are currently playing.
 
 
-Overview
----------------
-AKA is an interface AddOn for World of Warcraft (WoW), the MMORPG produced by Blizzard Entertainment. It is inspired by the Identity AddOn that has filled a similar role over the years. Identity and its successor Identity-2 have been lovingly shepherded by Ferusnox and UltraNurd, and we thank them for their years of service to the WoW community.
-
-
 Quick Start
 ---------------
-I freely admit that I usually want an AddOn to be up and running as soon as possible so I can get back in game. I am certain that I am not alone in that respect. Here are the steps to have the name of your main or whatever people know you by showing up on all your alts for a given faction on a given realm:
+Here are the steps to have the name of your main or whatever people know you by showing up on all your alts for a given faction on a given realm:
 
 1.) Log in to an alt on the desired faction and realm in WoW.
 2.) Type "/aka guild" into the chat bar and press the Enter key.
@@ -38,6 +33,11 @@ The following commands are used in the input field of the chat window in the WoW
 /aka on - Enable the AKA AddOn for the current realm
 /aka off - Disable the AKA AddOn for the current realm
 /aka reset - Reset the current faction on the current realm to the default values
+
+
+Acknowledgements
+---------------
+AKA is inspired by the Identity AddOn that has filled a similar role over the years. Identity and its successor Identity-2 have been lovingly shepherded by Ferusnox and UltraNurd, and we thank them for their years of service to the WoW community.
 
 
 License
