@@ -3,7 +3,7 @@ CHANGELOG for AKA
 AKA 0.7.1
   * Correction to specified Interface version
 
--- Barry Hawkins 
+-- Barry Hawkins Tue, 19 Jul 2016 22:43:54 -0700
 
 AKA 0.7 
   * Updated for 7.0.3 compatibility
