@@ -1,5 +1,10 @@
 CHANGELOG for AKA
 
+AKA 0.7.1
+  * Correction to specified Interface version
+
+-- Barry Hawkins 
+
 AKA 0.7 
   * Updated for 7.0.3 compatibility
 

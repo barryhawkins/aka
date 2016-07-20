@@ -1,16 +1,17 @@
-## Interface: 60200
+## Interface: 70000
+## X-Min-Interface: 60200
 ## Name: AKA
 ## Title: AKA
 ## Notes: Allow people to recognize you no matter what character you're playing
 ## Author: Barry Hawkins
-## Version: 0.7
+## Version: 0.7.1
 ## OptionalDeps:
 ## Dependencies:
 ## SavedVariables: AKASettings
 ## SavedVariablesPerCharacter:
 ## DefaultState: enabled
 ## X-Category: Chat
-## X-Curse-Packaged-Version: 0.7
+## X-Curse-Packaged-Version: 0.7.1
 ## X-Curse-Project-ID: aka
 localization.en.lua
 AKA.lua
