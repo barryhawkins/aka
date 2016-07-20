@@ -1,9 +1,25 @@
 #!/usr/bin/env sh
 
-export WARCRAFT_ADDON_HOME="/Applications/World of Warcraft/Interface/AddOns"
-export AKA_INSTALL_DIRECTORY="${WARCRAFT_ADDON_HOME}/AKA"
+export WARCRAFT_MAC_ADDON_HOME="/Applications/World of Warcraft/Interface/AddOns"
+export WARCRAFT_WIN_ADDON_HOME="/mnt/c/Program Files (x86)/World of Warcraft/Interface/AddOns"
+export WARCRAFT_ADDON_HOME=""
+export AKA_INSTALL_DIRECTORY=""
 export AKA_STAGING_DIRECTORY="AKA"
 export AKA_DEV_ARCHIVE_NAME="AKA-SNAPSHOT.zip"
+
+if [ -d "${WARCRAFT_MAC_ADDON_HOME}" ]; then
+  echo "Mac addon installation detected"
+  WARCRAFT_ADDON_HOME="${WARCRAFT_MAC_ADDON_HOME}"
+  echo "\n"
+fi
+
+if [ -d "${WARCRAFT_WIN_ADDON_HOME}" ]; then
+  echo "Windows addon installation detected"
+  WARCRAFT_ADDON_HOME="${WARCRAFT_WIN_ADDON_HOME}"
+  echo "\n"
+fi
+
+AKA_INSTALL_DIRECTORY="${WARCRAFT_ADDON_HOME}/AKA"
 
 if [ -d "${AKA_INSTALL_DIRECTORY}" ]; then
   echo "'${AKA_INSTALL_DIRECTORY}' exists, removing for fresh deploy"
