@@ -1,5 +1,10 @@
 CHANGELOG for AKA
 
+AKA 0.7.2
+  * Updated for 7.1 compatibility
+
+-- Barry Hawkins Thu, 27 Oct 2016 00:25:58 -0700
+
 AKA 0.7.1
   * Correction to specified Interface version
 

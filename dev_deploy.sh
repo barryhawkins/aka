@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 export WARCRAFT_MAC_ADDON_HOME="/Applications/World of Warcraft/Interface/AddOns"
-export WARCRAFT_WIN_ADDON_HOME="/mnt/c/Program Files (x86)/World of Warcraft/Interface/AddOns"
+export WARCRAFT_WIN_ADDON_HOME="/mnt/e/World of Warcraft/interface/addons"
 export WARCRAFT_ADDON_HOME=""
 export AKA_INSTALL_DIRECTORY=""
 export AKA_STAGING_DIRECTORY="AKA"
