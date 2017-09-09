@@ -1,5 +1,10 @@
 CHANGELOG for AKA
 
+AKA 0.7.4
+  * Updated for 7.3 compatibility
+
+-- Barry Hawkins 
+
 AKA 0.7.3
   * Updated for 7.2 compatibility
 

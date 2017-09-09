@@ -21,7 +21,7 @@ function AKA_InitializeChannelDefinitions()
     return channels
 end
 
-local AKA_Version = "0.7.3"
+local AKA_Version = "0.7.4"
 local AKA_SystemSendChatMessage
 local AKA_ChannelDefinitions = AKA_InitializeChannelDefinitions()
 local AKA_CharacterName
