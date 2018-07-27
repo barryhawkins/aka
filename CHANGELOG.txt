@@ -1,5 +1,10 @@
 CHANGELOG for AKA
 
+AKA 0.7.5
+  * Updated for 8.0.1 compatibility
+
+-- Barry Hawkins Wed, 18 Jul 2018 08:20:33 -0700
+
 AKA 0.7.4
   * Updated for 7.3 compatibility
 
