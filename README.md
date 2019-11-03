@@ -17,6 +17,7 @@ NOTE: Technically you could log in to your main and perform steps two and three.
 
 
 ## Usage
+
 The following commands are used in the input field of the chat window in the WoW client.
 
 `/aka` - Displays basic help information
@@ -41,8 +42,10 @@ The following commands are used in the input field of the chat window in the WoW
 
 
 ## Acknowledgements
+
 AKA is inspired by the Identity AddOn that has filled a similar role over the years. Identity and its successor Identity-2 have been lovingly shepherded by Ferusnox and UltraNurd, and we thank them for their years of service to the WoW community.
 
 
 ## License
+
 AKA is licensed under the Creative Commons Attribution 3.0 Unported (CC BY 3.0) license. For details, see LICENSE.txt located alongside this file. See also [http://creativecommons.org/licenses/by/3.0/legalcode] for the same content online.
